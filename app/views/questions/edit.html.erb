@@ -1,0 +1,20 @@
+<h1>Edit Question</h2>
+<%= simple_form_for [@quiz, @question] do |f| %>
+<div class = 'field'>
+  <%= f.label :query%>
+  <%= f.text_field :query, required:true, autofocus:true%>
+</div>
+<div class = 'field'>
+  <%= f.label :correct_anwer%>
+  <%= f.text_field :correct_answer, required:true%>
+</div>
+<div class = 'field'>
+  <%# Wasnt sure how to do this, it work when creating. But editing sends the array into each box %>
+  <%= f.label :wrong_answer %>
+  <%= f.input_field :wrong_answer, multiple: true%>
+  <%= f.input_field :wrong_answer, multiple: true%>
+  <%= f.input_field :wrong_answer, multiple: true%>
+</div>
+<%= f.submit %>
+
+<% end %>

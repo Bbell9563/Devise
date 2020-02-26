@@ -1,0 +1,19 @@
+<h1>New Question</h2>
+<%= simple_form_for [@quiz, @question] do |f| %>
+<div class = 'field'>
+  <%= f.label :query%>
+  <%= f.text_field :query, required:true, autofocus:true%>
+</div>
+<div class = 'field'>
+  <%= f.label :correct_anwer%>
+  <%= f.text_field :correct_answer, required:true%>
+</div>
+<div class = 'field'>
+  <%= f.label :wrong_answer%>
+  <%= f.input_field :wrong_answer, multiple: true%>
+  <%= f.input_field :wrong_answer, multiple: true%>
+  <%= f.input_field :wrong_answer, multiple: true%>
+</div>
+<%= f.submit %>
+
+<% end %>

@@ -1,0 +1,23 @@
+  <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo"><%= link_to "YoQuiz", quizzes_path %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "quizzes",  quizzes_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to "logout",  destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'login', new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to 'sign up',new_user_registration_path%>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+        

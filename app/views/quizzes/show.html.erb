@@ -1,0 +1,31 @@
+<h6><%= link_to "Back to your Quizzes", quizzes_path(current_user)%></h6>
+<h1><%= @quiz.title %></h1>
+<%= link_to "Delete This Quiz", quiz_path(@quiz), method: :delete%>
+<%= link_to "Update This Quiz", edit_quiz_path(@quiz)%>
+<%= link_to "New Question", new_quiz_question_path(@quiz)%>
+
+
+
+<% if @quiz.questions.length > 0 %>
+  <% @quiz.questions.each do |question|%>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card red darken-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%= question.query %></span>
+            <p>-<%= question.correct_answer %></p>
+            <% question.wrong_answer.each do |answer|%>
+              <p>-<%= answer %></p>
+            <% end %></p>
+          </div>
+          <div class="card-action">
+            <a><%= link_to "Delete", quiz_question_path(@quiz, question), method: :delete %></a>
+            <a><%= link_to "Update", edit_quiz_question_path(@quiz, question)%></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else%>
+  <h6><%= "There is no questions"%></h6>
+<% end %>

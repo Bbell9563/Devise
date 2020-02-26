@@ -1,0 +1,28 @@
+<h1> This is your QUIZZES</h1>
+<h4><%= link_to "Create Quiz", new_quiz_path(current_user)%></h4>
+<% if current_user.quizzes.length > 0 %>
+    <% current_user.quizzes.each do |quiz|%>
+      <div class="col s12 m7">
+      <h2 class="header"></h2>
+      <div class="card horizontal">
+        <%# <div class="card-image">
+          <img src="https://lorempixel.com/100/190/nature/6">
+        </div> %>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><%="#{quiz.title}"%></p>
+          </div>
+          <div class="card-action">
+            <a><%= link_to "View", quiz %></a>
+            <a><%= link_to "Delete", quiz, method: :delete %></a>
+            <a><%= link_to "Update", edit_quiz_path(quiz) %></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>             
+<% else %>
+  <p><%= "No Quizes Found" %></p>
+<% end %>
+

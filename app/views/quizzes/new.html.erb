@@ -1,0 +1,9 @@
+<%= @quiz.id ? 'Edit Quiz' : 'New Quiz'%>
+<%= link_to "Back to All Quizzes", quizzes_path(current_user) %>
+<%= form_with(model: @quiz, local:true) do |f|%>
+  <div class= 'field'>
+    <%= f.label :title %>
+    <%= f.text_field :title, required:true%>
+  </div>
+  <%= f.submit nil%>
+<% end %>
